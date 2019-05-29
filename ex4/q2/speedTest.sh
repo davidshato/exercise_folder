@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# discription:
+# speedtest on the network and creating a CSV file with the following fields:
+# date, current time, upload, download
+
 USAGE()
 {
 	echo "USAGE : `basename $0` <Iterates> <Delay>"

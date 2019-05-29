@@ -7,6 +7,11 @@ from optparse import OptionParser
 
 exitstatus = 1
 
+# creatig a ssh connection to remote server and execute a command.
+
+
+
+# configure the option parser
 usage = "USAGE: %prog [options]"
 
 parser = OptionParser(usage=usage)
@@ -21,9 +26,8 @@ parser.add_option("-c", "--command", metavar="COMMAND", help="command to run")
 
 options, args = parser.parse_args()
 
-print(options.num)
 
-print(args)
+
 if len(args) != 0:
     parser.error("Only Options are ")
     sys.exit(exitstatus)
@@ -35,12 +39,14 @@ command = options.command
 port=22
 
 try:
-    
+
+  #creating the ssh connection   
     client = paramiko.SSHClient()
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.WarningPolicy)
     print("creating SSH connection . . . ")
 
+# opennig a connection
     client.connect(hostname,port=port, username=username, password=password)
     
     print("connected to "+hostname)
@@ -56,6 +62,7 @@ try:
     print("---- Output END----")
     exitstatus= 0
  
+ # general exception and prining the error message
 except Exception as e:
 
     print("ERROR:",e)

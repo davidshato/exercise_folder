@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+
+# description: renaming a file by changing the extenion of the file
+
+
+
 USEGE(){
 	echo "`basename $0`: <Format> <Path>"
 	exit 1
@@ -17,6 +23,10 @@ if [[ ! -d $path ]];
 then
 	USEGE
 fi
+
+
+# iterating on all the files in the path and checking 
+# if the the file contains the format given by the scripts arguments
 
 for file in `ls ${path}`
 do

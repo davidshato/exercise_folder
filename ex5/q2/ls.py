@@ -5,13 +5,15 @@ import sys
 import hashlib
 from multiprocessing import Pool
 
-
+#creates the md5 hashing from the file name and prints the following
+# number, fullpath, md4 hahsed file name
 def md5creator(arr):
     num = arr[0]
     fullpath = arr[1]
     print(str(num)+","+fullpath+","+hashlib.md5(fullpath.encode('utf-8')).hexdigest())
 
 
+# creating the file system tree from the given path
 def createlist(path):
     listf  = []
     listd = []
@@ -42,8 +44,12 @@ if __name__ == '__main__':
     if not os.path.isdir(path):
         print("USAGE <DIR>")
     
+    # multiproccessing code
+
     filesList,dirList = createlist(path)
     p = Pool(5)
+
+    #calling the md5creator on every file and directory from the list 
     p.map(md5creator,filesList)
     p.map(md5creator,dirList)
 
