@@ -26,7 +26,14 @@ for line in linesList:
 
 if(not found):
     print(searchWord+" is not found in "+sys.argv[2])
-    sys.exit(1)
+
+
+fileName.close()
+sys.exit(0)
+
+
+
+
 
 
 
